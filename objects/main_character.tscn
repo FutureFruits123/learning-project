@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://juugnuri4i2j"]
+
+[ext_resource type="Texture2D" uid="uid://dudwdl5kmsvn6" path="res://assets/download-removebg-preview.png" id="1_gb0in"]
+[ext_resource type="Script" path="res://objects/main_character.gd" id="1_hqjrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g32wx"]
+size = Vector2(34, 46)
+
+[node name="MainCharacter" type="CharacterBody2D"]
+script = ExtResource("1_hqjrq")
+
+[node name="Download-removebg-preview" type="Sprite2D" parent="."]
+texture = ExtResource("1_gb0in")
+hframes = 4
+vframes = 4
+frame = 14
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_g32wx")
