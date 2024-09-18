@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://55bril2h454h"]
+[gd_scene load_steps=9 format=3 uid="uid://55bril2h454h"]
 
+[ext_resource type="Script" path="res://Global.gd" id="1_3qsx8"]
 [ext_resource type="PackedScene" uid="uid://juugnuri4i2j" path="res://objects/main_character.tscn" id="1_gra0g"]
 [ext_resource type="Texture2D" uid="uid://o35dcuyougfk" path="res://assets/360_F_761478116_zFCVgWbzLkz31G1QeUu0d7k4RJE7gy2w.jpg" id="1_y3fsk"]
 [ext_resource type="Texture2D" uid="uid://kosdrvva7c71" path="res://assets/4b20479d-e7f6-4832-bd03-322814e191c6-removebg-preview.png" id="2_k2nof"]
 [ext_resource type="PackedScene" uid="uid://chlrlhbwlodcx" path="res://objects/area_2d.tscn" id="4_aif67"]
+[ext_resource type="Script" path="res://Label.gd" id="4_js1m6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d6sqj"]
 texture = ExtResource("2_k2nof")
@@ -957,38 +959,62 @@ sources/0 = SubResource("TileSetAtlasSource_d6sqj")
 
 [node name="MainScene" type="Node2D"]
 position = Vector2(357, 192)
+script = ExtResource("1_3qsx8")
+metadata/_edit_horizontal_guides_ = [128.0]
 
 [node name="360F761478116ZFcVgWbzLkz31g1QeUu0d7k4rje7Gy2w" type="Sprite2D" parent="."]
+position = Vector2(3, -12)
 texture = ExtResource("1_y3fsk")
 
 [node name="MainCharacter" parent="." instance=ExtResource("1_gra0g")]
 position = Vector2(-128, -76)
 scale = Vector2(0.5, 0.5)
 
+[node name="Camera2D" type="Camera2D" parent="MainCharacter"]
+zoom = Vector2(3, 3)
+limit_left = 0
+limit_top = 0
+limit_right = 596
+limit_bottom = 276
+
+[node name="Control" type="Control" parent="MainCharacter"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 256.0
+offset_top = 152.0
+offset_right = 296.0
+offset_bottom = 192.0
+
+[node name="Label" type="Label" parent="MainCharacter/Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -14.15
+anchor_top = -7.7
+anchor_right = -14.15
+anchor_bottom = -7.7
+offset_right = 73.0
+offset_bottom = 36.0
+script = ExtResource("4_js1m6")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_ia6p6")
 format = 2
-layer_0/tile_data = PackedInt32Array(-131072, 131072, 6, -196605, 131072, 6, -131076, 131072, 6, -65529, 131072, 6, -65537, 131072, 6, -196616, 131072, 6, -196604, 131072, 6, -65528, 131072, 6, -131077, 131072, 6, -196617, 131072, 6)
+layer_0/tile_data = PackedInt32Array(-131072, 131072, 6, -196605, 131072, 6, -131076, 131072, 6, -65529, 131072, 6, -65537, 131072, 6, -196616, 131072, 6, -196604, 131072, 6, -65528, 131072, 6, -131077, 131072, 6, -196617, 131072, 6, -131060, 131072, 6, -131061, 131072, 6)
 
 [node name="Area2D" parent="." instance=ExtResource("4_aif67")]
 position = Vector2(-93, -98)
 
 [node name="Area2D2" parent="." instance=ExtResource("4_aif67")]
-position = Vector2(0, -38)
+position = Vector2(0, -40)
 
 [node name="Area2D3" parent="." instance=ExtResource("4_aif67")]
-position = Vector2(129, -22)
+position = Vector2(128, -24)
 
 [node name="Area2D4" parent="." instance=ExtResource("4_aif67")]
-position = Vector2(-64, -55)
+position = Vector2(-64, -56)
 
 [node name="Area2D5" parent="." instance=ExtResource("4_aif67")]
-position = Vector2(64, -54)
+position = Vector2(64, -56)
 
 [node name="Area2D6" parent="." instance=ExtResource("4_aif67")]
 position = Vector2(-1, -86)
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(6.99997, -5.00002)
-scale = Vector2(0.2, 0.2)
-zoom = Vector2(2, 2)
